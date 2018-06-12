@@ -5,8 +5,18 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 <script>
+  function updateYr() {
+    $('#yr-metrogram')[0].src = 'https://www.yr.no/sted/Norge/Tr%C3%B8ndelag/Trondheim/Tyholt/meteogram.png?' + Date.now()
+  }
+  document.onvisibilitychange = function() { 
+    if (document.visibilityState == 'visible') {
+       console.log(document.visibilityState);
+      updateYr();
+    }
+ 
+};
 setInterval(function() {
-  $('#yr-metrogram')[0].src = 'https://www.yr.no/sted/Norge/Tr%C3%B8ndelag/Trondheim/Tyholt/meteogram.png?' + Date.now()
+  updateYr();
 }, 600000);
 </script>
 <style>
